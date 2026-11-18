@@ -1,0 +1,82 @@
+@page
+@model rz.Pages.Staff.CreateModel
+@{
+    ViewData["Title"] = "Add New Staff Member";
+}
+
+<div class="page-hero hero-blue">
+    <h1>Add New Staff Member</h1>
+    <p class="lead">Enter employee details to register a new staff record in the SQLite database.</p>
+</div>
+
+<div class="form-card">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="alert alert-warning" role="alert"></div>
+
+        <div class="form-grid">
+            <div>
+                <label asp-for="Staff.FirstName" class="form-label"></label>
+                <input asp-for="Staff.FirstName" class="form-control" placeholder="e.g. Grace" />
+                <span asp-validation-for="Staff.FirstName" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.LastName" class="form-label"></label>
+                <input asp-for="Staff.LastName" class="form-control" placeholder="e.g. Hopper" />
+                <span asp-validation-for="Staff.LastName" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Staff.Email" class="form-label"></label>
+            <input asp-for="Staff.Email" type="email" class="form-control" placeholder="grace.hopper@company.com" />
+            <span asp-validation-for="Staff.Email" class="validation-message"></span>
+        </div>
+
+        <div class="form-grid">
+            <div>
+                <label asp-for="Staff.Department" class="form-label"></label>
+                <select asp-for="Staff.Department" class="form-control">
+                    <option value="">-- Select Department --</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                </select>
+                <span asp-validation-for="Staff.Department" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.JobTitle" class="form-label"></label>
+                <input asp-for="Staff.JobTitle" class="form-control" placeholder="e.g. Software Engineer" />
+                <span asp-validation-for="Staff.JobTitle" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-grid form-grid-lg">
+            <div>
+                <label asp-for="Staff.StartDate" class="form-label"></label>
+                <input asp-for="Staff.StartDate" type="date" class="form-control" />
+                <span asp-validation-for="Staff.StartDate" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.Salary" class="form-label"></label>
+                <input asp-for="Staff.Salary" type="number" step="100" class="form-control" placeholder="50000" />
+                <span asp-validation-for="Staff.Salary" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-group form-group-last">
+            <label asp-for="Staff.IsActive" class="form-label"></label>
+            <select asp-for="Staff.IsActive" class="form-control">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
+            <span asp-validation-for="Staff.IsActive" class="validation-message"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Create Staff Member</button>
+            <a asp-page="/Staff/Index" class="btn btn-outline">Cancel</a>
+        </div>
+    </form>
+</div>

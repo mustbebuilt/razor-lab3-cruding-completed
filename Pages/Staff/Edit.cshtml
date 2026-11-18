@@ -1,0 +1,83 @@
+@page "{id:int}"
+@model rz.Pages.Staff.EditModel
+@{
+    ViewData["Title"] = $"Edit Staff - {Model.Staff.FirstName} {Model.Staff.LastName}";
+}
+
+<div class="page-hero hero-blue">
+    <h1>Edit Staff Member</h1>
+    <p class="lead">Updating employee details for <strong>@Model.Staff.FirstName @Model.Staff.LastName</strong> (ID: @Model.Staff.StaffId).</p>
+</div>
+
+<div class="form-card">
+    <form method="post">
+        <input type="hidden" asp-for="Staff.StaffId" />
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-warning" role="alert"></div>
+
+        <div class="form-grid">
+            <div>
+                <label asp-for="Staff.FirstName" class="form-label"></label>
+                <input asp-for="Staff.FirstName" class="form-control" />
+                <span asp-validation-for="Staff.FirstName" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.LastName" class="form-label"></label>
+                <input asp-for="Staff.LastName" class="form-control" />
+                <span asp-validation-for="Staff.LastName" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Staff.Email" class="form-label"></label>
+            <input asp-for="Staff.Email" type="email" class="form-control" />
+            <span asp-validation-for="Staff.Email" class="validation-message"></span>
+        </div>
+
+        <div class="form-grid">
+            <div>
+                <label asp-for="Staff.Department" class="form-label"></label>
+                <select asp-for="Staff.Department" class="form-control">
+                    <option value="Engineering">Engineering</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                </select>
+                <span asp-validation-for="Staff.Department" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.JobTitle" class="form-label"></label>
+                <input asp-for="Staff.JobTitle" class="form-control" />
+                <span asp-validation-for="Staff.JobTitle" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-grid form-grid-lg">
+            <div>
+                <label asp-for="Staff.StartDate" class="form-label"></label>
+                <input asp-for="Staff.StartDate" type="date" class="form-control" />
+                <span asp-validation-for="Staff.StartDate" class="validation-message"></span>
+            </div>
+            <div>
+                <label asp-for="Staff.Salary" class="form-label"></label>
+                <input asp-for="Staff.Salary" type="number" step="100" class="form-control" />
+                <span asp-validation-for="Staff.Salary" class="validation-message"></span>
+            </div>
+        </div>
+
+        <div class="form-group form-group-last">
+            <label asp-for="Staff.IsActive" class="form-label"></label>
+            <select asp-for="Staff.IsActive" class="form-control">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
+            <span asp-validation-for="Staff.IsActive" class="validation-message"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a asp-page="/Staff/Details" asp-route-id="@Model.Staff.StaffId" class="btn btn-outline">Cancel</a>
+        </div>
+    </form>
+</div>

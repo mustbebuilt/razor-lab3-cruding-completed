@@ -1,11 +1,12 @@
-# Lab 3: CRUD Operations in ASP.NET Core Razor Pages (Starter Application)
+# Lab 3: CRUD Operations in ASP.NET Core Razor Pages (Completed Example)
 
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-512bd4.svg)](https://dotnet.microsoft.com/)
 [![Razor Pages](https://img.shields.io/badge/ASP.NET%20Core-Razor%20Pages-0284c7.svg)](https://learn.microsoft.com/aspnet/core/razor-pages/)
 [![SQLite](https://img.shields.io/badge/Database-SQLite-003B57.svg)](https://www.sqlite.org/)
 [![EF Core](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-68217a.svg)](https://learn.microsoft.com/ef/core/)
+[![Status](https://img.shields.io/badge/status-completed-success.svg)](https://github.com/mustbebuilt/razor-lab3-cruding-completed)
 
-Welcome to **Lab 3**! This repository is the starter template designed for students to fork and clone. 
+Welcome to **Lab 3**! This repository is a completed example of the lab, showing a working implementation of all four CRUD operations.
 
 In this lab, you will extend a data-driven ASP.NET Core Razor Pages web application (started in Lab 2) by implementing full **CRUD (Create, Read, Update, Delete)** operations with **Entity Framework Core (EF Core)** and **SQLite**. You will build HTML input forms, handle HTTP POST requests, validate user input with Data Annotations, enforce safe data-deletion workflows, and apply the **Post-Redirect-Get (PRG)** design pattern with `TempData` user feedback.
 
@@ -44,16 +45,16 @@ dotnet --version
 
 ## 🚀 Quick Start
 
-### 1. Fork & Clone
+### 1. Clone
 
-Fork this repository to your own GitHub account, then clone it to your development machine:
+Clone this completed example to your development machine:
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/razor-lab3-cruding.git
-cd razor-lab3-cruding
+git clone https://github.com/mustbebuilt/razor-lab3-cruding-completed.git
+cd razor-lab3-cruding-completed
 ```
 
-### 2. Run the Starter Application
+### 2. Run the Completed Application
 
 Launch the local Kestrel development server:
 
@@ -121,9 +122,9 @@ The step-by-step lab instructions are published in the [Lab 3 GitHub Wiki](https
 │   └── Staff/
 │       ├── Index.cshtml/.cs     # Staff Directory with search & active count
 │       └── Details.cshtml/.cs   # Staff member detail view (from Lab 2)
-│       └── (Create.cshtml/.cs)  # Created in Step 02
-│       └── (Edit.cshtml/.cs)    # Created in Step 04
-│       └── (Delete.cshtml/.cs)  # Created in Step 05
+│       ├── Create.cshtml/.cs    # Create staff records (Step 02)
+│       ├── Edit.cshtml/.cs      # Update staff records (Step 04)
+│       └── Delete.cshtml/.cs    # Confirm and delete staff records (Step 05)
 ├── resources/
 │   ├── README.md                # Database seed script details
 │   ├── staff-sqlite.sql         # SQLite DDL and 6 seed records
@@ -138,7 +139,7 @@ The step-by-step lab instructions are published in the [Lab 3 GitHub Wiki](https
 
 ## 🗄 Database Schema & Resetting the Database
 
-The starter repository includes a pre-seeded SQLite database in `Data/staff.db` containing 6 employee records across multiple departments:
+The completed repository includes a pre-seeded SQLite database in `Data/staff.db` containing 6 employee records across multiple departments:
 
 | Staff ID | Full Name | Department | Job Title | Salary | Active? |
 |:---:|:---|:---|:---|---:|:---:|

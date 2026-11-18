@@ -1,0 +1,55 @@
+@page "{id:int}"
+@model rz.Pages.Staff.DeleteModel
+@{
+    ViewData["Title"] = $"Delete Staff - {Model.Staff.FirstName} {Model.Staff.LastName}";
+}
+
+<div class="page-hero hero-danger">
+    <h1 class="text-danger">Confirm Staff Deletion</h1>
+    <p class="lead">Are you sure you want to permanently delete this employee record from the database?</p>
+</div>
+
+<div class="alert alert-warning">
+    <strong>Warning:</strong> This operation cannot be undone. All database records associated with this staff member will be permanently removed from SQLite.
+</div>
+
+<dl class="details-list">
+    <dt>Staff ID</dt>
+    <dd>@Model.Staff.StaffId</dd>
+
+    <dt>Full Name</dt>
+    <dd><strong>@Model.Staff.FirstName @Model.Staff.LastName</strong></dd>
+
+    <dt>Email Address</dt>
+    <dd>@Model.Staff.Email</dd>
+
+    <dt>Department</dt>
+    <dd>@Model.Staff.Department</dd>
+
+    <dt>Job Title</dt>
+    <dd>@Model.Staff.JobTitle</dd>
+
+    <dt>Salary</dt>
+    <dd>@Model.Staff.Salary.ToString("C")</dd>
+
+    <dt>Employment Status</dt>
+    <dd>
+        @if (Model.Staff.IsActive == 1)
+        {
+            <span class="status-active">Active</span>
+        }
+        else
+        {
+            <span class="status-inactive">Inactive</span>
+        }
+    </dd>
+</dl>
+
+<form method="post" class="delete-form">
+    <input type="hidden" asp-for="Staff.StaffId" />
+
+    <div class="action-row">
+        <button type="submit" class="btn btn-danger">Yes, Delete Staff Member</button>
+        <a asp-page="/Staff/Index" class="btn btn-outline">Cancel and Keep Record</a>
+    </div>
+</form>
